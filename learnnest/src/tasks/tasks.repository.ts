@@ -17,7 +17,7 @@ export class TasksRepository extends Repository<Task>{
         }
 
         if (search) {
-            query.andWhere('LOWER(task.title) LIKE LOWER(:search) OR LOWER(task.description) LIKE LOWER(:search)', {search: `%${search}%`});
+            query.andWhere('LOWER(task.title) LIKE LOWER(:search) OR LOWER(task.description) LIKE LOWER(:search)', { search: `%${search}%` });
         }
 
         const tasks = await query.getMany();
